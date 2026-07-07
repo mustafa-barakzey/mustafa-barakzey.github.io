@@ -1,623 +1,793 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mustafa Barakzey — Senior .NET Developer</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --bg: #0A0E1A;
-    --bg-alt: #0F1526;
-    --surface: #141C33;
-    --surface-hover: #182140;
-    --rule: #232E4A;
-    --text: #E7ECF5;
-    --text-dim: #8C97AE;
-    --text-faint: #5C6580;
-    --accent: #E8A33D;
-    --accent-dim: #B97E2C;
-    --accent-glow: rgba(232, 163, 61, 0.14);
-    --font-display: 'Space Grotesk', sans-serif;
-    --font-body: 'Inter', sans-serif;
-    --font-mono: 'JetBrains Mono', monospace;
-  }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mustafa Barakzey — Senior .NET Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0A0E1A;
+      --bg-alt: #0F1526;
+      --surface: #141C33;
+      --surface-hover: #182140;
+      --rule: #232E4A;
+      --text: #E7ECF5;
+      --text-dim: #8C97AE;
+      --text-faint: #5C6580;
+      --accent: #E8A33D;
+      --accent-dim: #B97E2C;
+      --accent-glow: rgba(232, 163, 61, 0.14);
+      --font-display: 'Space Grotesk', sans-serif;
+      --font-body: 'Inter', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
 
-  *{ margin:0; padding:0; box-sizing:border-box; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-  html{ scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+    }
 
-  body{
-    background: var(--bg);
-    color: var(--text);
-    font-family: var(--font-body);
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-  }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
 
-  a{ color: inherit; text-decoration: none; }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-  ::selection{ background: var(--accent-glow); color: var(--accent); }
+    ::selection {
+      background: var(--accent-glow);
+      color: var(--accent);
+    }
 
-  a:focus-visible, button:focus-visible{
-    outline: 2px solid var(--accent);
-    outline-offset: 3px;
-    border-radius: 2px;
-  }
+    a:focus-visible,
+    button:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+      border-radius: 2px;
+    }
 
-  .wrap{
-    max-width: 980px;
-    margin: 0 auto;
-    padding: 0 32px;
-  }
+    .wrap {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
 
-  .mono{ font-family: var(--font-mono); }
+    .mono {
+      font-family: var(--font-mono);
+    }
 
-  .eyebrow{
-    font-family: var(--font-mono);
-    font-size: 12.5px;
-    letter-spacing: 0.06em;
-    color: var(--accent);
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 18px;
-  }
-  .eyebrow::before{
-    content:'';
-    width: 22px; height: 1px;
-    background: var(--accent-dim);
-    display:inline-block;
-  }
+    .eyebrow {
+      font-family: var(--font-mono);
+      font-size: 12.5px;
+      letter-spacing: 0.06em;
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
 
-  /* ---------- NAV ---------- */
-  nav{
-    position: sticky; top: 0; z-index: 50;
-    background: rgba(10,14,26,0.82);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--rule);
-  }
-  nav .wrap{
-    display:flex; align-items:center; justify-content:space-between;
-    height: 64px;
-  }
-  .nav-mark{
-    font-family: var(--font-mono);
-    font-size: 14px;
-    color: var(--text-dim);
-    letter-spacing: 0.02em;
-  }
-  .nav-mark span{ color: var(--accent); }
-  .nav-links{
-    display:flex; gap: 28px;
-    font-family: var(--font-mono);
-    font-size: 13px;
-    color: var(--text-dim);
-  }
-  .nav-links a{ transition: color .15s ease; }
-  .nav-links a:hover{ color: var(--accent); }
-  .nav-links .num{ color: var(--text-faint); margin-right: 4px; }
+    .eyebrow::before {
+      content: '';
+      width: 22px;
+      height: 1px;
+      background: var(--accent-dim);
+      display: inline-block;
+    }
 
-  @media (max-width: 640px){
-    .nav-links{ display:none; }
-  }
+    /* ---------- NAV ---------- */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(10, 14, 26, 0.82);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--rule);
+    }
 
-  /* ---------- HERO ---------- */
-  .hero{
-    position: relative;
-    padding: 108px 0 96px;
-    overflow: hidden;
-    border-bottom: 1px solid var(--rule);
-  }
-  .rings{
-    position: absolute;
-    right: -140px; top: 50%;
-    transform: translateY(-50%);
-    width: 640px; height: 640px;
-    pointer-events: none;
-    opacity: 0.55;
-  }
-  @media (max-width: 900px){
-    .rings{ right: -260px; opacity: 0.35; }
-  }
-  .rings circle{ fill: none; stroke-width: 1; }
-  .rings text{
-    font-family: var(--font-mono);
-    font-size: 11px;
-    letter-spacing: 0.08em;
-    fill: var(--text-faint);
-  }
+    nav .wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
 
-  .hero-name{
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: clamp(40px, 6vw, 68px);
-    line-height: 1.03;
-    letter-spacing: -0.01em;
-    max-width: 720px;
-  }
-  .hero-role{
-    font-family: var(--font-display);
-    font-weight: 500;
-    font-size: clamp(18px, 2.4vw, 24px);
-    color: var(--accent);
-    margin-top: 14px;
-  }
-  .hero-tagline{
-    margin-top: 26px;
-    max-width: 560px;
-    color: var(--text-dim);
-    font-size: 16.5px;
-  }
-  .hero-links{
-    margin-top: 36px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-  }
-  .chip{
-    font-family: var(--font-mono);
-    font-size: 13px;
-    color: var(--text);
-    border: 1px solid var(--rule);
-    padding: 9px 16px;
-    border-radius: 3px;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    transition: border-color .15s ease, color .15s ease, background .15s ease;
-  }
-  .chip:hover{
-    border-color: var(--accent-dim);
-    color: var(--accent);
-    background: var(--accent-glow);
-  }
-  .chip::before{ content: '›'; color: var(--accent); }
+    .nav-mark {
+      font-family: var(--font-mono);
+      font-size: 14px;
+      color: var(--text-dim);
+      letter-spacing: 0.02em;
+    }
 
-  /* ---------- SECTION SHELL ---------- */
-  section.block{
-    padding: 88px 0;
-    border-bottom: 1px solid var(--rule);
-  }
-  .block-title{
-    font-family: var(--font-display);
-    font-weight: 600;
-    font-size: clamp(26px, 3.2vw, 34px);
-    margin-bottom: 40px;
-    max-width: 640px;
-  }
+    .nav-mark span {
+      color: var(--accent);
+    }
 
-  /* ---------- SUMMARY ---------- */
-  .summary-text{
-    font-family: var(--font-display);
-    font-weight: 400;
-    font-size: clamp(20px, 2.4vw, 26px);
-    line-height: 1.5;
-    color: var(--text);
-    max-width: 780px;
-  }
-  .summary-text strong{
-    color: var(--accent);
-    font-weight: 600;
-  }
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: var(--text-dim);
+    }
 
-  /* ---------- SKILLS ---------- */
-  .skill-grid{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 28px 32px;
-  }
-  @media (max-width: 720px){ .skill-grid{ grid-template-columns: 1fr 1fr; } }
-  @media (max-width: 480px){ .skill-grid{ grid-template-columns: 1fr; } }
+    .nav-links a {
+      transition: color .15s ease;
+    }
 
-  .skill-group-label{
-    font-family: var(--font-mono);
-    font-size: 12px;
-    color: var(--text-faint);
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    margin-bottom: 14px;
-  }
-  .tag-list{ display:flex; flex-wrap: wrap; gap: 8px; }
-  .tag{
-    font-family: var(--font-mono);
-    font-size: 12.5px;
-    color: var(--text-dim);
-    background: var(--surface);
-    border: 1px solid var(--rule);
-    padding: 6px 10px;
-    border-radius: 3px;
-    white-space: nowrap;
-  }
+    .nav-links a:hover {
+      color: var(--accent);
+    }
 
-  /* ---------- EXPERIENCE ---------- */
-  .timeline{ position: relative; }
-  .timeline::before{
-    content:'';
-    position: absolute;
-    left: 5px; top: 6px; bottom: 6px;
-    width: 1px;
-    background: var(--rule);
-  }
-  .job{
-    position: relative;
-    padding-left: 34px;
-    margin-bottom: 56px;
-  }
-  .job:last-child{ margin-bottom: 0; }
-  .job::before{
-    content:'';
-    position: absolute;
-    left: 0; top: 6px;
-    width: 11px; height: 11px;
-    border-radius: 50%;
-    background: var(--bg);
-    border: 2px solid var(--accent);
-  }
-  .job-head{
-    display: flex;
-    flex-wrap: wrap;
-    align-items: baseline;
-    justify-content: space-between;
-    gap: 8px 20px;
-    margin-bottom: 6px;
-  }
-  .job-role{
-    font-family: var(--font-display);
-    font-weight: 600;
-    font-size: 19px;
-  }
-  .job-dates{
-    font-family: var(--font-mono);
-    font-size: 12.5px;
-    color: var(--accent);
-    white-space: nowrap;
-  }
-  .job-company{
-    font-family: var(--font-mono);
-    font-size: 13px;
-    color: var(--text-dim);
-    margin-bottom: 16px;
-  }
-  .job ul{
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  .job li{
-    position: relative;
-    padding-left: 18px;
-    color: var(--text-dim);
-    font-size: 15px;
-  }
-  .job li::before{
-    content:'—';
-    position: absolute;
-    left: 0;
-    color: var(--text-faint);
-  }
+    .nav-links .num {
+      color: var(--text-faint);
+      margin-right: 4px;
+    }
 
-  /* ---------- PROJECTS ---------- */
-  .project-grid{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-  }
-  @media (max-width: 760px){ .project-grid{ grid-template-columns: 1fr; } }
+    @media (max-width: 640px) {
+      .nav-links {
+        display: none;
+      }
+    }
 
-  .project-card{
-    background: var(--surface);
-    border: 1px solid var(--rule);
-    border-radius: 6px;
-    padding: 30px 28px;
-    transition: border-color .18s ease, transform .18s ease;
-  }
-  .project-card:hover{
-    border-color: var(--accent-dim);
-    transform: translateY(-3px);
-  }
-  .project-tag{
-    font-family: var(--font-mono);
-    font-size: 11px;
-    color: var(--accent);
-    letter-spacing: 0.06em;
-    margin-bottom: 14px;
-    display:block;
-  }
-  .project-name{
-    font-family: var(--font-display);
-    font-weight: 600;
-    font-size: 20px;
-    margin-bottom: 12px;
-  }
-  .project-desc{
-    color: var(--text-dim);
-    font-size: 14.5px;
-  }
+    /* ---------- HERO ---------- */
+    .hero {
+      position: relative;
+      padding: 108px 0 96px;
+      overflow: hidden;
+      border-bottom: 1px solid var(--rule);
+    }
 
-  /* ---------- EDU / LANG ---------- */
-  .split{
-    display: grid;
-    grid-template-columns: 1.4fr 1fr;
-    gap: 48px;
-  }
-  @media (max-width: 720px){ .split{ grid-template-columns: 1fr; gap: 40px; } }
+    .rings {
+      position: absolute;
+      right: -140px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 640px;
+      height: 640px;
+      pointer-events: none;
+      opacity: 0.55;
+    }
 
-  .edu-degree{
-    font-family: var(--font-display);
-    font-weight: 600;
-    font-size: 18px;
-    margin-bottom: 6px;
-  }
-  .edu-school{ color: var(--text-dim); font-size: 14.5px; }
-  .edu-years{ font-family: var(--font-mono); font-size: 12.5px; color: var(--text-faint); margin-top: 4px; }
+    @media (max-width: 900px) {
+      .rings {
+        right: -260px;
+        opacity: 0.35;
+      }
+    }
 
-  .lang-row{
-    display:flex; justify-content: space-between; align-items:center;
-    padding: 12px 0;
-    border-bottom: 1px solid var(--rule);
-    font-size: 14.5px;
-  }
-  .lang-row:last-child{ border-bottom: none; }
-  .lang-level{
-    font-family: var(--font-mono);
-    font-size: 12px;
-    color: var(--accent);
-  }
+    .rings circle {
+      fill: none;
+      stroke-width: 1;
+    }
 
-  /* ---------- FOOTER ---------- */
-  footer{ padding: 80px 0 60px; }
-  .footer-cta{
-    font-family: var(--font-display);
-    font-weight: 600;
-    font-size: clamp(28px, 4vw, 42px);
-    max-width: 620px;
-    margin-bottom: 32px;
-  }
-  .footer-links{ display:flex; flex-wrap: wrap; gap: 14px; margin-bottom: 56px; }
-  .footer-bottom{
-    display:flex; justify-content: space-between; flex-wrap: wrap; gap: 10px;
-    font-family: var(--font-mono);
-    font-size: 12px;
-    color: var(--text-faint);
-    padding-top: 24px;
-    border-top: 1px solid var(--rule);
-  }
+    .rings text {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      fill: var(--text-faint);
+    }
 
-  @media (prefers-reduced-motion: reduce){
-    html{ scroll-behavior: auto; }
-    .project-card{ transition: none; }
-  }
-</style>
+    .hero-name {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: clamp(40px, 6vw, 68px);
+      line-height: 1.03;
+      letter-spacing: -0.01em;
+      max-width: 720px;
+    }
+
+    .hero-role {
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: clamp(18px, 2.4vw, 24px);
+      color: var(--accent);
+      margin-top: 14px;
+    }
+
+    .hero-tagline {
+      margin-top: 26px;
+      max-width: 560px;
+      color: var(--text-dim);
+      font-size: 16.5px;
+    }
+
+    .hero-links {
+      margin-top: 36px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .chip {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: var(--text);
+      border: 1px solid var(--rule);
+      padding: 9px 16px;
+      border-radius: 3px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: border-color .15s ease, color .15s ease, background .15s ease;
+    }
+
+    .chip:hover {
+      border-color: var(--accent-dim);
+      color: var(--accent);
+      background: var(--accent-glow);
+    }
+
+    .chip::before {
+      content: '›';
+      color: var(--accent);
+    }
+
+    /* ---------- SECTION SHELL ---------- */
+    section.block {
+      padding: 88px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .block-title {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: clamp(26px, 3.2vw, 34px);
+      margin-bottom: 40px;
+      max-width: 640px;
+    }
+
+    /* ---------- SUMMARY ---------- */
+    .summary-text {
+      font-family: var(--font-display);
+      font-weight: 400;
+      font-size: clamp(20px, 2.4vw, 26px);
+      line-height: 1.5;
+      color: var(--text);
+      max-width: 780px;
+    }
+
+    .summary-text strong {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    /* ---------- SKILLS ---------- */
+    .skill-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px 32px;
+    }
+
+    @media (max-width: 720px) {
+      .skill-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .skill-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .skill-group-label {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--text-faint);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 14px;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag {
+      font-family: var(--font-mono);
+      font-size: 12.5px;
+      color: var(--text-dim);
+      background: var(--surface);
+      border: 1px solid var(--rule);
+      padding: 6px 10px;
+      border-radius: 3px;
+      white-space: nowrap;
+    }
+
+    /* ---------- EXPERIENCE ---------- */
+    .timeline {
+      position: relative;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 5px;
+      top: 6px;
+      bottom: 6px;
+      width: 1px;
+      background: var(--rule);
+    }
+
+    .job {
+      position: relative;
+      padding-left: 34px;
+      margin-bottom: 56px;
+    }
+
+    .job:last-child {
+      margin-bottom: 0;
+    }
+
+    .job::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 6px;
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: var(--bg);
+      border: 2px solid var(--accent);
+    }
+
+    .job-head {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 8px 20px;
+      margin-bottom: 6px;
+    }
+
+    .job-role {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 19px;
+    }
+
+    .job-dates {
+      font-family: var(--font-mono);
+      font-size: 12.5px;
+      color: var(--accent);
+      white-space: nowrap;
+    }
+
+    .job-company {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: var(--text-dim);
+      margin-bottom: 16px;
+    }
+
+    .job ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .job li {
+      position: relative;
+      padding-left: 18px;
+      color: var(--text-dim);
+      font-size: 15px;
+    }
+
+    .job li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--text-faint);
+    }
+
+    /* ---------- PROJECTS ---------- */
+    .project-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    @media (max-width: 760px) {
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--rule);
+      border-radius: 6px;
+      padding: 30px 28px;
+      transition: border-color .18s ease, transform .18s ease;
+    }
+
+    .project-card:hover {
+      border-color: var(--accent-dim);
+      transform: translateY(-3px);
+    }
+
+    .project-tag {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--accent);
+      letter-spacing: 0.06em;
+      margin-bottom: 14px;
+      display: block;
+    }
+
+    .project-name {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 20px;
+      margin-bottom: 12px;
+    }
+
+    .project-desc {
+      color: var(--text-dim);
+      font-size: 14.5px;
+    }
+
+    /* ---------- EDU / LANG ---------- */
+    .split {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 48px;
+    }
+
+    @media (max-width: 720px) {
+      .split {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+    }
+
+    .edu-degree {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 18px;
+      margin-bottom: 6px;
+    }
+
+    .edu-school {
+      color: var(--text-dim);
+      font-size: 14.5px;
+    }
+
+    .edu-years {
+      font-family: var(--font-mono);
+      font-size: 12.5px;
+      color: var(--text-faint);
+      margin-top: 4px;
+    }
+
+    .lang-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--rule);
+      font-size: 14.5px;
+    }
+
+    .lang-row:last-child {
+      border-bottom: none;
+    }
+
+    .lang-level {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--accent);
+    }
+
+    /* ---------- FOOTER ---------- */
+    footer {
+      padding: 80px 0 60px;
+    }
+
+    .footer-cta {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: clamp(28px, 4vw, 42px);
+      max-width: 620px;
+      margin-bottom: 32px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 56px;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--text-faint);
+      padding-top: 24px;
+      border-top: 1px solid var(--rule);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      .project-card {
+        transition: none;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<nav>
-  <div class="wrap">
-    <div class="nav-mark">mustafa<span>.</span>barakzey</div>
-    <div class="nav-links">
-      <a href="#summary"><span class="num">01</span>Profile</a>
-      <a href="#skills"><span class="num">02</span>Stack</a>
-      <a href="#experience"><span class="num">03</span>Experience</a>
-      <a href="#projects"><span class="num">04</span>Projects</a>
-      <a href="#contact"><span class="num">05</span>Contact</a>
-    </div>
-  </div>
-</nav>
-
-<header class="hero">
-  <svg class="rings" viewBox="0 0 640 640" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-    <circle cx="320" cy="320" r="90" stroke="#E8A33D" stroke-opacity="0.5"/>
-    <circle cx="320" cy="320" r="160" stroke="#8C97AE" stroke-opacity="0.3"/>
-    <circle cx="320" cy="320" r="230" stroke="#8C97AE" stroke-opacity="0.2"/>
-    <circle cx="320" cy="320" r="300" stroke="#8C97AE" stroke-opacity="0.12"/>
-    <text x="320" y="324" text-anchor="middle">DOMAIN</text>
-    <text x="320" y="168" text-anchor="middle">APPLICATION</text>
-    <text x="320" y="98" text-anchor="middle">INFRASTRUCTURE</text>
-    <text x="320" y="28" text-anchor="middle">PRESENTATION</text>
-  </svg>
-  <div class="wrap">
-    <div class="eyebrow">senior-.net-developer.build</div>
-    <h1 class="hero-name">Mustafa Barakzey</h1>
-    <div class="hero-role">Senior .NET Developer — Backend Architecture &amp; DDD</div>
-    <p class="hero-tagline">
-      I design and ship enterprise backend systems that hold up under real operational load —
-      from clean domain models to the containers they ship in.
-    </p>
-    <div class="hero-links">
-      <a class="chip" href="mailto:mustafabarakzey@gmail.com">mustafabarakzey@gmail.com</a>
-      <a class="chip" href="https://linkedin.com/in/mustafa-barakzey" target="_blank" rel="noopener">LinkedIn</a>
-      <a class="chip" href="https://github.com/mustafa-barakzey" target="_blank" rel="noopener">GitHub</a>
-    </div>
-  </div>
-</header>
-
-<section class="block" id="summary">
-  <div class="wrap">
-    <div class="eyebrow">01 / profile</div>
-    <p class="summary-text">
-      <strong>5+ years</strong> building enterprise, business-critical systems on ASP.NET Core,
-      C#, and SQL Server. I specialize in <strong>Domain-Driven Design</strong>, Clean and
-      Onion Architecture, and modular monoliths that stay maintainable as they grow —
-      and I'm equally comfortable owning delivery end-to-end: architecture, API design,
-      Dockerized deployment on Linux, and the CI/CD pipeline that ships it.
-      Alongside hands-on development, I lead technical initiatives and mentor developers,
-      currently building the backend for a marine port and terminal operations platform
-      running real logistics infrastructure.
-    </p>
-  </div>
-</section>
-
-<section class="block" id="skills">
-  <div class="wrap">
-    <div class="eyebrow">02 / technical stack</div>
-    <h2 class="block-title">Tools I build with</h2>
-    <div class="skill-grid">
-      <div>
-        <div class="skill-group-label">Backend</div>
-        <div class="tag-list">
-          <span class="tag">C#</span><span class="tag">ASP.NET Core</span>
-          <span class="tag">Web API</span><span class="tag">EF Core</span>
-        </div>
-      </div>
-      <div>
-        <div class="skill-group-label">Architecture</div>
-        <div class="tag-list">
-          <span class="tag">DDD</span><span class="tag">Clean Architecture</span>
-          <span class="tag">Onion Architecture</span><span class="tag">Modular Monolith</span>
-        </div>
-      </div>
-      <div>
-        <div class="skill-group-label">Database</div>
-        <div class="tag-list">
-          <span class="tag">SQL Server</span>
-        </div>
-      </div>
-      <div>
-        <div class="skill-group-label">Frontend</div>
-        <div class="tag-list">
-          <span class="tag">React</span><span class="tag">TypeScript</span>
-          <span class="tag">Next.js</span><span class="tag">Blazor</span>
-        </div>
-      </div>
-      <div>
-        <div class="skill-group-label">DevOps &amp; Infra</div>
-        <div class="tag-list">
-          <span class="tag">Docker</span><span class="tag">Docker Compose</span>
-          <span class="tag">Linux</span><span class="tag">Git</span><span class="tag">CI/CD</span>
-        </div>
-      </div>
-      <div>
-        <div class="skill-group-label">Testing</div>
-        <div class="tag-list">
-          <span class="tag">xUnit</span><span class="tag">Moq</span>
-        </div>
+  <nav>
+    <div class="wrap">
+      <div class="nav-mark">mustafa<span>.</span>barakzey</div>
+      <div class="nav-links">
+        <a href="#summary"><span class="num">01</span>Profile</a>
+        <a href="#skills"><span class="num">02</span>Stack</a>
+        <a href="#experience"><span class="num">03</span>Experience</a>
+        <a href="#projects"><span class="num">04</span>Projects</a>
+        <a href="#contact"><span class="num">05</span>Contact</a>
       </div>
     </div>
-  </div>
-</section>
+  </nav>
 
-<section class="block" id="experience">
-  <div class="wrap">
-    <div class="eyebrow">03 / experience</div>
-    <h2 class="block-title">Where I've built</h2>
-    <div class="timeline">
-
-      <div class="job">
-        <div class="job-head">
-          <div class="job-role">Senior Developer</div>
-          <div class="job-dates mono">Feb 2024 — Present</div>
-        </div>
-        <div class="job-company">PTSolutions</div>
-        <ul>
-          <li>Develop and maintain enterprise-scale .NET Web API applications supporting port and terminal marine operations.</li>
-          <li>Designed reusable interfaces and base classes that accelerated development across multiple modules.</li>
-          <li>Integrated third-party services and optimized internal communications, improving maintainability and reducing integration complexity.</li>
-          <li>Collaborate closely with product, business, and engineering teams during agile delivery cycles.</li>
-          <li>Contribute to architecture and code-quality initiatives to improve long-term scalability and reliability.</li>
-        </ul>
-      </div>
-
-      <div class="job">
-        <div class="job-head">
-          <div class="job-role">Project Manager / Tech Lead</div>
-          <div class="job-dates mono">Apr 2023 — Jan 2024</div>
-        </div>
-        <div class="job-company">Arad Dasht Kavir</div>
-        <ul>
-          <li>Led backend development of a multi-vendor e-commerce platform using ASP.NET Core Web API.</li>
-          <li>Defined technical architecture using DDD and Onion Architecture principles.</li>
-          <li>Built a dynamic storefront and administration panel using React, Next.js, and TypeScript.</li>
-          <li>Created a reusable validation framework that simplified frontend form development and reduced repetitive code.</li>
-          <li>Conducted code reviews, mentored developers, and translated business requirements into technical solutions.</li>
-          <li>Planned architectural evolution toward service-oriented and microservice-ready boundaries.</li>
-        </ul>
-      </div>
-
-      <div class="job">
-        <div class="job-head">
-          <div class="job-role">Full-Stack Developer</div>
-          <div class="job-dates mono">Sep 2021 — Apr 2023</div>
-        </div>
-        <div class="job-company">Arad Dasht Kavir</div>
-        <ul>
-          <li>Developed full-stack features for a multi-vendor e-commerce platform.</li>
-          <li>Implemented backend services using ASP.NET Core and SQL Server.</li>
-          <li>Built responsive frontend functionality with React and TypeScript.</li>
-          <li>Participated in requirements analysis, implementation, testing, and deployment.</li>
-        </ul>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<section class="block" id="projects">
-  <div class="wrap">
-    <div class="eyebrow">04 / highlighted projects</div>
-    <h2 class="block-title">Selected work</h2>
-    <div class="project-grid">
-      <div class="project-card">
-        <span class="project-tag">ENTERPRISE / LOGISTICS</span>
-        <div class="project-name">Port &amp; Terminal Marine Operations Platform</div>
-        <p class="project-desc">
-          Enterprise management system for marine and terminal operations, built on
-          ASP.NET Core and SQL Server with a scalable backend architecture designed
-          for high-throughput, mission-critical use.
-        </p>
-      </div>
-      <div class="project-card">
-        <span class="project-tag">MULTI-VENDOR / COMMERCE</span>
-        <div class="project-name">Multi-Vendor E-Commerce Platform</div>
-        <p class="project-desc">
-          Full-stack commerce solution with dynamic administration and vendor
-          management, ASP.NET Core APIs, a React/Next.js frontend, and a
-          DDD-based architecture underneath.
-        </p>
+  <header class="hero">
+    <svg class="rings" viewBox="0 0 640 640" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <circle cx="320" cy="320" r="90" stroke="#E8A33D" stroke-opacity="0.5" />
+      <circle cx="320" cy="320" r="160" stroke="#8C97AE" stroke-opacity="0.3" />
+      <circle cx="320" cy="320" r="230" stroke="#8C97AE" stroke-opacity="0.2" />
+      <circle cx="320" cy="320" r="300" stroke="#8C97AE" stroke-opacity="0.12" />
+      <text x="320" y="324" text-anchor="middle">DOMAIN</text>
+      <text x="320" y="168" text-anchor="middle">APPLICATION</text>
+      <text x="320" y="98" text-anchor="middle">INFRASTRUCTURE</text>
+      <text x="320" y="28" text-anchor="middle">PRESENTATION</text>
+    </svg>
+    <div class="wrap">
+      <div class="eyebrow">senior-.net-developer.build</div>
+      <h1 class="hero-name">Mustafa Barakzey</h1>
+      <div class="hero-role">Senior .NET Developer — Backend Architecture &amp; DDD</div>
+      <p class="hero-tagline">
+        I design and ship enterprise backend systems that hold up under real operational load —
+        from clean domain models to the containers they ship in.
+      </p>
+      <div class="hero-links">
+        <a class="chip" href="mailto:mustafabarakzey@gmail.com">mustafabarakzey@gmail.com</a>
+        <a class="chip" href="https://linkedin.com/in/mustafa-barakzey" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="chip" href="https://github.com/mustafa-barakzey" target="_blank" rel="noopener">GitHub</a>
       </div>
     </div>
-  </div>
-</section>
+  </header>
 
-<section class="block">
-  <div class="wrap">
-    <div class="eyebrow">05 / education &amp; languages</div>
-    <div class="split">
-      <div>
-        <div class="edu-degree">Bachelor of Science in Computer Engineering</div>
-        <div class="edu-school">Islamic Azad University of Yazd</div>
-        <div class="edu-years">2018 — 2022</div>
-      </div>
-      <div>
-        <div class="lang-row">
-          <span>Persian</span><span class="lang-level mono">NATIVE</span>
+  <section class="block" id="summary">
+    <div class="wrap">
+      <div class="eyebrow">01 / profile</div>
+      <p class="summary-text">
+        <strong>5+ years</strong> building enterprise, business-critical systems on ASP.NET Core,
+        C#, and SQL Server. I specialize in <strong>Domain-Driven Design</strong>, Clean and
+        Onion Architecture, and modular monoliths that stay maintainable as they grow —
+        and I'm equally comfortable owning delivery end-to-end: architecture, API design,
+        Dockerized deployment on Linux, and the CI/CD pipeline that ships it.
+        Alongside hands-on development, I lead technical initiatives and mentor developers,
+        currently building the backend for a marine port and terminal operations platform
+        running real logistics infrastructure.
+      </p>
+    </div>
+  </section>
+
+  <section class="block" id="skills">
+    <div class="wrap">
+      <div class="eyebrow">02 / technical stack</div>
+      <h2 class="block-title">Tools I build with</h2>
+      <div class="skill-grid">
+        <div>
+          <div class="skill-group-label">Backend</div>
+          <div class="tag-list">
+            <span class="tag">C#</span>
+            <span class="tag">ASP.NET Core</span>
+            <span class="tag">Web API</span>
+            <span class="tag">REST APIs</span>
+            <span class="tag">EF Core</span>
+          </div>
         </div>
-        <div class="lang-row">
-          <span>English</span><span class="lang-level mono">PROFESSIONAL</span>
+        <div>
+          <div class="skill-group-label">Architecture</div>
+          <div class="tag-list">
+            <span class="tag">DDD</span>
+            <span class="tag">CQRS</span>
+            <span class="tag">Clean/Onion Architecture</span>
+            <span class="tag">Modular Monolith</span>
+          </div>
+        </div>
+        <div>
+          <div class="skill-group-label">Database</div>
+          <div class="tag-list">
+            <span class="tag">SQL Server</span>
+            <span class="tag">PostgreSQL</span>
+          </div>
+        </div>
+        <div>
+          <div class="skill-group-label">Frontend</div>
+          <div class="tag-list">
+            <span class="tag">Blazor</span>
+            <span class="tag">React</span>
+            <span class="tag">TypeScript</span>
+            <span class="tag">Next.js</span>
+          </div>
+        </div>
+        <div>
+          <div class="skill-group-label">DevOps &amp; Infra</div>
+          <div class="tag-list">
+            <span class="tag">Docker</span>
+            <span class="tag">Docker Compose</span>
+            <span class="tag">Kubernetes</span>
+            <span class="tag">Linux</span>
+            <span class="tag">Git</span>
+            <span class="tag">CI/CD</span>
+          </div>
+        </div>
+        <div>
+          <div class="skill-group-label">Testing</div>
+          <div class="tag-list">
+            <span class="tag">xUnit</span>
+            <span class="tag">Moq</span>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<footer id="contact">
-  <div class="wrap">
-    <div class="eyebrow">06 / contact</div>
-    <div class="footer-cta">Let's build something reliable together.</div>
-    <div class="footer-links">
-      <a class="chip" href="mailto:mustafabarakzey@gmail.com">mustafabarakzey@gmail.com</a>
-      <a class="chip" href="https://linkedin.com/in/mustafa-barakzey" target="_blank" rel="noopener">LinkedIn</a>
-      <a class="chip" href="https://github.com/mustafa-barakzey" target="_blank" rel="noopener">GitHub</a>
+  <section class="block" id="experience">
+    <div class="wrap">
+      <div class="eyebrow">03 / experience</div>
+      <h2 class="block-title">Where I've built</h2>
+      <div class="timeline">
+
+        <div class="job">
+          <div class="job-head">
+            <div class="job-role">Senior Developer</div>
+            <div class="job-dates mono">Feb 2024 — Present</div>
+          </div>
+          <div class="job-company">PTSolutions</div>
+          <ul>
+            <li>Develop and maintain enterprise-scale .NET Web API applications supporting port and terminal marine
+              operations.</li>
+            <li>Designed reusable interfaces and base classes that accelerated development across multiple modules.</li>
+            <li>Integrated third-party services and optimized internal communications, improving maintainability and
+              reducing integration complexity.</li>
+            <li>Collaborate closely with product, business, and engineering teams during agile delivery cycles.</li>
+            <li>Contribute to architecture and code-quality initiatives to improve long-term scalability and
+              reliability.</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="job-head">
+            <div class="job-role">Project Manager / Tech Lead</div>
+            <div class="job-dates mono">Apr 2023 — Jan 2024</div>
+          </div>
+          <div class="job-company">Arad Dasht Kavir</div>
+          <ul>
+            <li>Led backend development of a multi-vendor e-commerce platform using ASP.NET Core Web API.</li>
+            <li>Defined technical architecture using DDD and Onion Architecture principles.</li>
+            <li>Built a dynamic storefront and administration panel using React, Next.js, and TypeScript.</li>
+            <li>Created a reusable validation framework that simplified frontend form development and reduced repetitive
+              code.</li>
+            <li>Conducted code reviews, mentored developers, and translated business requirements into technical
+              solutions.</li>
+            <li>Planned architectural evolution toward service-oriented and microservice-ready boundaries.</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="job-head">
+            <div class="job-role">Full-Stack Developer</div>
+            <div class="job-dates mono">Sep 2021 — Apr 2023</div>
+          </div>
+          <div class="job-company">Arad Dasht Kavir</div>
+          <ul>
+            <li>Developed full-stack features for a multi-vendor e-commerce platform.</li>
+            <li>Implemented backend services using ASP.NET Core and SQL Server.</li>
+            <li>Built responsive frontend functionality with React and TypeScript.</li>
+            <li>Participated in requirements analysis, implementation, testing, and deployment.</li>
+          </ul>
+        </div>
+
+      </div>
     </div>
-    <div class="footer-bottom">
-      <span>© 2026 Mustafa Barakzey</span>
-      <span>Built with ASP.NET Core roots, shipped as HTML</span>
+  </section>
+
+  <section class="block" id="projects">
+    <div class="wrap">
+      <div class="eyebrow">04 / highlighted projects</div>
+      <h2 class="block-title">Selected work</h2>
+      <div class="project-grid">
+        <div class="project-card">
+          <span class="project-tag">ENTERPRISE / LOGISTICS</span>
+          <div class="project-name">Port &amp; Terminal Marine Operations Platform</div>
+          <p class="project-desc">
+            Enterprise management system for marine and terminal operations, built on
+            ASP.NET Core and SQL Server with a scalable backend architecture designed
+            for high-throughput, mission-critical use.
+          </p>
+        </div>
+        <div class="project-card">
+          <span class="project-tag">MULTI-VENDOR / COMMERCE</span>
+          <div class="project-name">Multi-Vendor E-Commerce Platform</div>
+          <p class="project-desc">
+            Full-stack commerce solution with dynamic administration and vendor
+            management, ASP.NET Core APIs, a React/Next.js frontend, and a
+            DDD-based architecture underneath.
+          </p>
+        </div>
+      </div>
     </div>
-  </div>
-</footer>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <div class="eyebrow">05 / education &amp; languages</div>
+      <div class="split">
+        <div>
+          <div class="edu-degree">Bachelor of Science in Computer Engineering</div>
+          <div class="edu-school">Islamic Azad University of Yazd</div>
+          <div class="edu-years">2018 — 2022</div>
+        </div>
+        <div>
+          <div class="lang-row">
+            <span>Persian</span><span class="lang-level mono">NATIVE</span>
+          </div>
+          <div class="lang-row">
+            <span>English</span><span class="lang-level mono">PROFESSIONAL</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer id="contact">
+    <div class="wrap">
+      <div class="eyebrow">06 / contact</div>
+      <div class="footer-cta">Let's build something reliable together.</div>
+      <div class="footer-links">
+        <a class="chip" href="mailto:mustafabarakzey@gmail.com">mustafabarakzey@gmail.com</a>
+        <a class="chip" href="https://linkedin.com/in/mustafa-barakzey" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="chip" href="https://github.com/mustafa-barakzey" target="_blank" rel="noopener">GitHub</a>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Mustafa Barakzey</span>
+        <span>Built with ASP.NET Core roots, shipped as HTML</span>
+      </div>
+    </div>
+  </footer>
 
 </body>
+
 </html>
